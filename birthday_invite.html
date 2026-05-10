@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>테리 생일 초대장</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Jua&family=Gaegu&display=swap');
+
+    body {
+      font-family: 'Gaegu', cursive;
+      background-color: #fff0f5;
+      text-align: center;
+      padding: 30px;
+    }
+    h1 {
+      color: #ff69b4;
+      font-family: 'Jua', sans-serif;
+      font-size: 40px;
+    }
+    .photo {
+      margin: 20px 0;
+    }
+    img {
+      width: 280px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+    .info {
+      margin-top: 20px;
+      font-size: 20px;
+      line-height: 1.8;
+      color: #444;
+    }
+    .message {
+      margin-top: 30px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #ff4081;
+    }
+    .dday {
+      margin-top: 20px;
+      font-size: 24px;
+      color: #ff1493;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 테리의 생일 초대장 🎉</h1>
+  
+  <div class="photo">
+    <img src="terry.jpg" alt="테리 사진">
+  </div>
+  
+  <div class="info">
+    <p><strong>이름:</strong> 테리</p>
+    <p><strong>나이:</strong> 4살</p>
+    <p><strong>특기:</strong> 애교, 강남스타일 춤</p>
+    <p><strong>취미:</strong> 인형놀이</p>
+    <p><strong>좋아하는 음식:</strong> 고구마, 고기</p>
+  </div>
+  
+  <div class="dday" id="dday"></div>
+  
+  <div class="message">
+    💌 테리야 생일축하해! 오래오래 건강하고 행복하자 💌
+  </div>
+
+  <script>
+    function getDday(targetDate) {
+      const today = new Date();
+      today.setHours(0,0,0,0);
+      const target = new Date(targetDate);
+      target.setHours(0,0,0,0);
+
+      const diff = (target - today) / (1000 * 60 * 60 * 24);
+
+      if (diff === 0) return "오늘은 D-Day 🎂";
+      else if (diff > 0) return `생일까지 D-${diff} ✨`;
+      else return `생일이 지난 지 D+${Math.abs(diff)} 💖`;
+    }
+
+    document.getElementById("dday").textContent = getDday("2026-05-11");
+  </script>
+</body>
+</html>
